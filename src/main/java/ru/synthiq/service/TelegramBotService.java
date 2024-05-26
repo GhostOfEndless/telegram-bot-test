@@ -1,4 +1,4 @@
-package ru.synthiq.configuration;
+package ru.synthiq.service;
 
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import org.telegram.telegrambots.webhook.starter.TelegramBotsSpringWebhookApplic
 
 @Slf4j
 @Service
-public class TelegramBot implements TelegramWebhookBot {
+public class TelegramBotService implements TelegramWebhookBot {
 
     @Value("${telegram.bot.uri}")
     private String botUri;
@@ -27,8 +27,8 @@ public class TelegramBot implements TelegramWebhookBot {
     private final TelegramBotsSpringWebhookApplication telegramBotsSpringWebhookApplication;
     private final TelegramClient telegramClient;
 
-    public TelegramBot(TelegramBotsSpringWebhookApplication telegramBotsSpringWebhookApplication,
-                       @Value("${telegram.bot.token}") String botToken) {
+    public TelegramBotService(TelegramBotsSpringWebhookApplication telegramBotsSpringWebhookApplication,
+                              @Value("${telegram.bot.token}") String botToken) {
         this.telegramBotsSpringWebhookApplication = telegramBotsSpringWebhookApplication;
         this.telegramClient = new OkHttpTelegramClient(botToken);
     }
