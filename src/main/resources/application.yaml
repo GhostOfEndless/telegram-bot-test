@@ -1,0 +1,7 @@
+server:
+  port: 8085
+telegram:
+  bot:
+    token: ${BOT_TOKEN}
+    uri: ${BOT_URI:https://synthiq.ru}
+    path: ${BOT_PATH:update}
